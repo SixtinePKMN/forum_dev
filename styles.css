@@ -20,7 +20,7 @@
 /*ceci est un test*/
 body {
   margin: 110px 50px 25px 50px;
-  background-image: url("/background.png");
+  background-image: url("https://sixtinepkmn.github.io/forum_dev/00_Images/background.png");
   background-attachment: fixed;
 }
 
