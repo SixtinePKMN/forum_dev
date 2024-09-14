@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="/FORUM/styles.css" />
+    <link rel="stylesheet" href="/font/css/fontello.css" />
+  </head>
+  <body>
+    <div id="navbar">
+      <div class="joueur">
+        <div id="avatarJoueur"><img loading="lazy" src="/img/avatar.png" alt="Admin" style="max-width: 250px; max-height: 250px" /></div>
+        <div id="pseudoJoueur">Admin</div>
+
+        <!-- Modal Structure pour Joueur -->
+        <div id="modal-joueur" class="modal">
+          <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Profil Joueur</h2>
+            <p>Informations supplémentaires sur le joueur...</p>
+          </div>
+        </div>
+      </div>
+      <ul class="liens">
+        <li>
+          <a class="mainmenu" href="/"><img id="i_icon_mini_index" src="https://2img.net/i/fa/modernbb/icon_home.png" border="0" hspace="2" alt="Accueil" title="Accueil" />Accueil</a>
+        </li>
+        <li>
+          <a class="mainmenu" href="/memberlist"><img id="i_icon_mini_members" src="https://2img.net/i/fa/modernbb/icon_members.png" border="0" hspace="2" alt="Membres" title="Membres" />Membres</a>
+        </li>
+        <li>
+          <a class="mainmenu" href="/login?logout=1&amp;tid=148ae0332da602bddd515ea3b87f5e5a&amp;key=bc03d1" rel="nofollow" id="logout"
+            ><img id="i_icon_mini_logout" src="https://2img.net/i/fa/modernbb/icon_logout.png" border="0" hspace="2" alt="Déconnexion [ Admin ]" title="Déconnexion [ Admin ]" />Déconnexion [ Admin
+            ]</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div id="corpsForum">
+      <div id="header">
+        <img class="infos" src="/img/infos.svg" alt="" />
+        <img class="titre" src="/img/titre.svg" alt="" />
+        <img class="imgHeader" src="/img/header01.png" alt="" />
+      </div>
+      <div id="pa">dd</div>
+
+      <!-- PARTIE AVEC LE GUIDEBOOK, LES PACTHS NOTES ET LES TOP-SITES-->
+      <div class="topImportant">
+        <!-- GUIDEBOOK -->
+        <div class="guidebook">
+          <a href="http://" target="_blank">
+            <h2>guidebook</h2>
+            <div class="btn">aller le lire</div>
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat in eius, voluptatem dolore sed dignissimos, nesciunt ea, ipsam vero deleniti molestias minima sequi accusantium.
+            Dignissimos.
+          </p>
+        </div>
+        <!-- LIRE LES PATCHS NOTES -->
+        <a href="http://" class="bloc news" target="_blank">
+          Patchs notes
+          <div class="btn">NEW 22.03</div>
+        </a>
+
+        <!-- RESULTATS TOP SITES -->
+        <a href="http://" class="bloc topsites" target="_blank"> Résultats des top-sites </a>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="categories" id="c1">
+        <div class="category Communication">
+          <div class="titre">
+            <div class="icon-new"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Communication</a>
+          </div>
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Communiquer avec nous sur un long titre pour vérifier</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp01">
+                  <strong>Lise Eurelt</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="category Absences">
+          <div class="titre">
+            <div class="icon-noNew"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Absences</a>
+          </div>
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Poster une absence</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp02">
+                  <strong>Hycast Racine-Harlowe</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="category Partenariats">
+          <div class="titre">
+            <div class="icon-new"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Partenariats</a>
+          </div>
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Demander un partenariat</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp03">
+                  <strong>Gallagher Nomdefamillelongomg</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERSONNAGE-->
+      <div class="titreCategorie"><bleu>Création</bleu> et <orange>gestion</orange></div>
+      <div class="categories" id="c2">
+        <div class="category presentation">
+          <div class="titre">
+            <div class="icon-new"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Présentations</a>
+          </div>
+          <ul class="prezGrp">
+            <li class="grp01">
+              <a href="">Groupe 01</a>
+              <div class="stats">25 membres</div>
+            </li>
+            <li class="grp02">
+              <a href="">Groupe 02</a>
+              <div class="stats">25 membres</div>
+            </li>
+            <li class="grp03">
+              <a href="">Groupe 03</a>
+              <div class="stats">25 membres</div>
+            </li>
+            <li class="grp04">
+              <a href="">Groupe 04</a>
+              <div class="stats">25 membres</div>
+            </li>
+            <li class="archives">
+              <a href="">Fiches refusées ou abandonnées</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nicole"></div>
+        <div class="liensPrez">
+          <a href="">Formulaire de fiche</a>
+          <a href="">Demander une validation</a>
+        </div>
+        <div class="category sujetPrez">
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Poster une absence</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp02">
+                  <strong>Hycast Racine-Harlowe</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="anby"></div>
+        <div class="category sujetGestion">
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Poster une absence</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp02">
+                  <strong>Hycast Racine-Harlowe</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="category gestion">
+          <div class="titre">
+            <div class="icon-noNew"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Gestion</a>
+          </div>
+          <ul class="lienGestion">
+            <li class="captures"><a href="">Captures</a></li>
+            <li class="boutique"><a href="">Boutique</a></li>
+            <li class="admin"><a href="">Administratif</a></li>
+            <li class="evolutions"><a href="">Évolutions</a></li>
+            <li class="divers"><a href="">Divers</a></li>
+            <li class="autre"><a href="">Autres</a></li>
+          </ul>
+        </div>
+        <div class="category pokeweb">
+          <div class="titre">
+            <div class="icon-new"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Pokeweb</a>
+          </div>
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Demander un partenariat</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp03">
+                  <strong>Gallagher Nomdefamillelongomg</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="categories" id="c3">aaa</div>
+      <!-- 04 -->
+      <div class="categories" id="c4">
+        <div class="category staff">
+          <div class="titre">
+            <div class="icon-new"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Staff</a>
+          </div>
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Demander un partenariat</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp03">
+                  <strong>Gallagher Nomdefamillelongomg</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="category corbeille">
+          <div class="titre">
+            <div class="icon-new"></div>
+            <a href="{catrow.forumrow.U_VIEWFORUM}">Corbeille</a>
+          </div>
+          <div class="dernierSujet">
+            <!-- BEGIN avatar -->
+            <img class="avatar" src="/img/avatar.png" alt="Lise Eurelt" />
+            <!-- END avatar -->
+
+            <!-- BEGIN switch_topic_title -->
+            <a href="{catrow.forumrow.U_LATEST_TOPIC}" class="titreSujet" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">Demander un partenariat</a>
+            <!-- END switch_topic_title -->
+
+            <!-- date -->
+            <div class="date">Jeu 5 Sep 2024 - 12:50</div>
+
+            <!-- auteur -->
+            <div class="auteur">
+              <a href="/u1" class="gensmall">
+                <span class="grp03">
+                  <strong>Gallagher Nomdefamillelongomg</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QEEL -->
+      <div id="qeel">
+        <div class="dernierInscrit">
+          Bienvenue
+          <strong>
+            <a href="/u4">
+              <span class="grp01">
+                <strong>Gallagher Nomdefamillelongomg</strong>
+              </span>
+            </a>
+          </strong>
+          <img src="/img/avatar.png" alt="" />
+        </div>
+        <div class="users connected">
+          <p>
+            <grp01>Akira Takahashi</grp01>, <grp02>Layla Patel</grp02>, <grp03>Juan Garcia</grp03>, <grp04>Mei Chen</grp04>, <admin>Aiden Smith</admin>, <nouvelArrivant>Fatima Khan</nouvelArrivant>,
+            <inactif>Luca Rossi</inactif>, <grp01>Leila Dubois</grp01>, <grp02>Mohammad Ali</grp02>, <grp03>Sophie Martin</grp03>, <grp04>Carlos Hernandez</grp04>, <admin>Ananya Gupta</admin>,
+            <nouvelArrivant>Liam O'Brien</nouvelArrivant>, <inactif>Isabella Santos</inactif>, <grp01>Ivan Petrov</grp01>, <grp02>Naima Rahman</grp02>, <grp03>Andrei Ivanov</grp03>,
+            <grp04>Maya Patel</grp04>, <admin>Oliver Johnson</admin>, <nouvelArrivant>Ingrid Andersen</nouvelArrivant>, <inactif>David Kim</inactif>, <grp01>Mariam Ibrahim</grp01>,
+            <grp02>Diego Gonzalez</grp02>, <grp03>Freya Jensen</grp03>, <grp04>Javier Martinez</grp04>, <admin>Amara Williams</admin>, <nouvelArrivant>Mateo Rodriguez</nouvelArrivant>,
+            <inactif>Sienna Taylor</inactif>, <grp01>Nikolai Volkov</grp01>, <grp02>Esra Demir</grp02>, <grp03>Elena Petrova</grp03>, <grp04>Marco Bellini</grp04>, <admin>Chloe Wilson</admin>,
+            <nouvelArrivant>Rahul Sharma</nouvelArrivant>, <inactif>Emma Thompson</inactif>, <grp01>Nia Edwards</grp01>, <grp02>Leon Li</grp02>, <grp03>Alice Green</grp03>,
+            <grp04>Tom Sullivan</grp04>, <admin>Ava Martinez</admin>, <nouvelArrivant>Lucas Parker</nouvelArrivant>, <inactif>Zoe Adams</inactif>, <grp01>Max Schneider</grp01>,
+            <grp02>Claire Robinson</grp02>, <grp03>Jaden Miller</grp03>, <grp04>Olivia Lewis</grp04>, <admin>Ethan Scott</admin>, <nouvelArrivant>Mia Lee</nouvelArrivant>,
+            <inactif>Benjamin Carter</inactif>
+          </p>
+        </div>
+        <div class="stats membres"><span>350</span><span>membres</span></div>
+        <div class="stats messages"><span>45 500</span><span>messages</span></div>
+        <div class="users enLigne">
+          <p>
+            <grp01>Akira Takahashi</grp01>, <grp02>Layla Patel</grp02>, <grp03>Juan Garcia</grp03>, <grp04>Mei Chen</grp04>, <admin>Aiden Smith</admin>, <nouvelArrivant>Fatima Khan</nouvelArrivant>,
+            <inactif>Luca Rossi</inactif>, <grp01>Leila Dubois</grp01>, <grp02>Mohammad Ali</grp02>, <grp03>Sophie Martin</grp03>, <grp04>Carlos Hernandez</grp04>, <admin>Ananya Gupta</admin>,
+            <nouvelArrivant>Liam O'Brien</nouvelArrivant>, <inactif>Isabella Santos</inactif>, <grp01>Ivan Petrov</grp01>, <grp02>Naima Rahman</grp02>, <grp03>Andrei Ivanov</grp03>
+          </p>
+        </div>
+      </div>
+
+      <span id="newest_user"> </span>
+    </div>
+
+    <script src="01-1_navbar.js"></script>
+    <script src="05_1_categoriesRP.js"></script>
+  </body>
+</html>

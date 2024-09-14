@@ -1,0 +1,135 @@
+.topImportant {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas:
+    "#{areaNumber('guidebook', 6)} #{areaNumber('news', 6)}"
+    "#{areaNumber('guidebook', 6)} #{areaNumber('topsites', 6)}";
+
+  @include mediaQueries("tablet") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "#{areaNumber('guidebook', 4)}"
+      "#{areaNumber('news', 4)}"
+      "#{areaNumber('topsites', 4)}";
+  }
+
+  .btn {
+    padding: 5px 10px;
+    background: rgba($black, 0.15);
+    border-radius: $br-5;
+
+    text-transform: uppercase;
+    @include text($inter, 16px, $text-white, 700);
+  }
+}
+
+/******************* ALL PAGES, GUIDEBOOK, PATCHNOTES ET TOP SITES ****************/
+
+.guidebook {
+  position: relative;
+  grid-area: guidebook;
+  overflow: clip;
+  @include container(container, $blue);
+
+  h2 {
+    @extend %headline;
+    @include text($unbounded, 36px, $text-white, 700);
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mediaQueries("small-desktop") {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    @include mediaQueries("tablet") {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include mediaQueries("large-mobile") {
+      gap: 6px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  p {
+    @extend %paragraph;
+    @include text($inter, 16px, $text-white);
+  }
+
+  &:before {
+    position: absolute;
+    right: -50px;
+    bottom: -100px;
+    content: "\e802";
+    transform: rotate(-18.168deg);
+    @include text($fontello, 300px, rgba($white, 0.15));
+  }
+}
+
+.bloc {
+  @include text($unbounded, 20px, $text-white, 700);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: clip;
+
+  &:before {
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include text($fontello, 125px, rgba($white, 0.15));
+  }
+
+  @include mediaQueries("small-desktop") {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  @include mediaQueries("tablet") {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include mediaQueries("large-mobile") {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+  }
+}
+
+.news {
+  grid-area: news;
+  @include container(container, $orange);
+
+  &:before {
+    content: "\e804";
+  }
+}
+
+.topsites {
+  grid-area: topsites;
+  @include container(container, $yellow);
+
+  &:before {
+    content: "\e803";
+  }
+}

@@ -1,0 +1,99 @@
+@import "scss/_variables";
+@import "scss/_placeholders";
+@import "scss/_mixins";
+
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+
+body {
+  margin: 110px 50px 25px 50px;
+  //background: $bgcolor;
+  background-image: $bgimg;
+  background-attachment: fixed;
+}
+
+*:not(img) {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.grp01,
+grp01 {
+  color: $grp01;
+}
+
+.grp02,
+grp02 {
+  color: $grp02;
+}
+
+.grp03,
+grp03 {
+  color: $grp03;
+}
+
+.grp04,
+grp04 {
+  color: $grp04;
+}
+
+.admin,
+admin {
+  color: $admin;
+}
+
+.nouvelArrivant,
+nouvelArrivant {
+  color: $nouvelArrivant;
+}
+
+.inactif,
+inactif {
+  color: $inactif;
+}
+
+bleu {
+  color: $blue;
+}
+
+orange {
+  color: $orange;
+}
+
+#corpsForum {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+  min-width: calc(450px - 100px);
+  max-width: 1200px;
+  @include responsive-grid-bg(12, 15px, rgba(255, 0, 0, 0.2));
+
+  @include mediaQueries("small-desktop") {
+    @include responsive-grid-bg(8, 15px, rgba(241, 117, 15, 0.2));
+  }
+
+  @include mediaQueries("tablet") {
+    @include responsive-grid-bg(4, 15px, rgba(28, 135, 235, 0.2));
+  }
+
+  @include mediaQueries("large-mobile") {
+    @include responsive-grid-bg(2, 15px, rgba(18, 224, 162, 0.2));
+  }
+}
+
+/******************/
+
+%scrollbar {
+  scrollbar-color: rgba($black, 0.2) rgba($black, 0.2);
+  scrollbar-width: thin;
+}
+
+@import "01_Home/01_navbar.scss";
+@import "01_Home/02_header.scss";
+@import "01_Home/03_pa.scss";
+@import "01_Home/04_guidebook_btn.scss";
+@import "01_Home/05_categories.scss";
+@import "01_Home/06_qeel.scss";

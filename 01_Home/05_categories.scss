@@ -1,0 +1,626 @@
+/*************************
+*************************
+CATEGORIES
+*************************
+*************************/
+.categories {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.titreCategorie {
+  @include container(container, $B-primary);
+  @include text($unbounded, 55px, $text-white, 700);
+}
+
+/*************************
+AFFICHAGE CATEGORIE
+*************************/
+.category {
+  @include container(container, $W-primary);
+
+  /*titre de la catégorie*/
+  .titre {
+    align-items: center;
+    margin-bottom: 15px;
+    height: 40px;
+    display: flex;
+    gap: 15px;
+
+    a {
+      @include text($unbounded, 24px, $blue, 700);
+    }
+
+    /*new ou noNew message*/
+    .icon- {
+      &new {
+        grid-area: iconStatut;
+        @include taille(40px, 40px);
+        @include container(15px, $blue, 100%);
+        box-shadow: $inner;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:before {
+          content: "\e804";
+          @include text($fontello, 20px, $white);
+        }
+      }
+
+      &noNew {
+        display: none;
+      }
+    }
+  }
+
+  /*affichage du dernier sujet*/
+  .dernierSujet {
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-template-rows: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+      "avatar titreSujet"
+      "avatar date"
+      "avatar auteur";
+  }
+
+  .avatar {
+    grid-area: avatar;
+    margin-right: 10px;
+    @include taille(50px, 50px);
+    object-fit: cover;
+    border-radius: $br-5;
+    border: 5px solid $W-tertiary;
+  }
+
+  .titreSujet {
+    grid-area: titreSujet;
+    @include text($inter, 16px, $text-black, 700);
+  }
+  .date {
+    grid-area: date;
+    @include text($inter, 14px, rgba($black, 0.35), 700);
+  }
+  .auteur {
+    grid-area: auteur;
+    @include text($inter, 16px, $text-black, 700);
+  }
+
+  .titre a,
+  .dernierSujet {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    min-width: 185px;
+  }
+}
+
+/*************************
+01.
+ADMINISTRATIF
+*************************/
+#c1 {
+  grid-template-areas: "#{areaNumber('communication', 4)} #{areaNumber('absences', 4)}  #{areaNumber('partenariats', 4)}";
+
+  @include mediaQueries("small-desktop") {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "#{areaNumber('communication', 4)} #{areaNumber('absences', 4)}"
+      "#{areaNumber('partenariats', 8)}";
+  }
+
+  @include mediaQueries("tablet") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "#{areaNumber('communication', 4)}"
+      "#{areaNumber('absences', 4)}"
+      "#{areaNumber('partenariats', 4)}";
+  }
+
+  /** catégories **/
+  .Communication {
+    grid-area: communication;
+  }
+
+  .Absences {
+    grid-area: absences;
+  }
+
+  .Partenariats {
+    grid-area: partenariats;
+  }
+}
+
+/*************************
+02.
+CREATION ET GESTION
+*************************/
+#c2 {
+  grid-template-areas:
+    "#{areaNumber('presentation', 8)} #{areaNumber('nicole', 4)}"
+    "#{areaNumber('presentation', 8)} #{areaNumber('liensPrez', 4)}"
+    "#{areaNumber('presentation', 8)} #{areaNumber('sujetPrez', 4)}"
+    "#{areaNumber('anby', 4)} #{areaNumber('gestion', 8)}"
+    "#{areaNumber('sujetGestion', 4)} #{areaNumber('gestion', 8)}"
+    "#{areaNumber('pokeweb', 12)}";
+
+  @include mediaQueries("small-desktop") {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "#{areaNumber('presentation', 5)} #{areaNumber('nicole', 3)}"
+      "#{areaNumber('sujetPrez', 5)} #{areaNumber('liensPrez', 3)}"
+      "#{areaNumber('anby', 2)} #{areaNumber('gestion', 6)}"
+      "#{areaNumber('sujetGestion', 8)}"
+      "#{areaNumber('pokeweb', 8)}";
+  }
+
+  @include mediaQueries("tablet") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "#{areaNumber('presentation', 4)}"
+      " #{areaNumber('liensPrez', 4)}"
+      "#{areaNumber('sujetPrez', 4)}"
+      "#{areaNumber('gestion', 4)}"
+      "#{areaNumber('sujetGestion', 4)}"
+      "#{areaNumber('pokeweb', 4)}";
+
+    .nicole,
+    .anby {
+      display: none;
+    }
+  }
+
+  /** catégories **/
+
+  /*PRESENTATIONS*/
+  .presentation {
+    grid-area: presentation;
+    z-index: 2;
+  }
+
+  .nicole {
+    grid-area: nicole;
+    position: relative;
+    top: 0px;
+    height: 128px;
+    width: 100%;
+    z-index: 1;
+
+    &:after {
+      width: calc(100% + 15px);
+      background-image: url(/img/nicole.png);
+      height: 504px;
+      content: "";
+      display: block;
+      position: absolute;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 0px 15px;
+      top: -125px;
+      left: -15px;
+
+      @include mediaQueries("small-desktop") {
+        top: 0px;
+        width: calc(100% + 15px);
+        left: -15px;
+        height: 683px;
+        background-position: right 0px;
+      }
+    }
+  }
+
+  .liensPrez {
+    grid-area: liensPrez;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+
+    a {
+      @include bouton(black);
+      text-align: right;
+    }
+  }
+
+  .sujetPrez {
+    grid-area: sujetPrez;
+    z-index: 2;
+  }
+
+  /************************************/
+  /*GESTION*/
+  .gestion {
+    grid-area: gestion;
+
+    ul.lienGestion {
+      @extend %list;
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+      grid-template-areas:
+        "captures boutique admin"
+        "evolutions divers autre";
+
+      @include mediaQueries("tablet") {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          "captures boutique"
+          "admin evolutions"
+          "divers autre";
+      }
+
+      @include mediaQueries("large-mobile") {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "captures"
+          "boutique"
+          "admin"
+          "evolutions"
+          "divers"
+          "autre";
+      }
+
+      /*liens*/
+      .captures {
+        grid-area: captures;
+      }
+
+      .boutique {
+        grid-area: boutique;
+      }
+
+      .admin {
+        grid-area: admin;
+      }
+
+      .evolutions {
+        grid-area: evolutions;
+      }
+
+      .divers {
+        grid-area: divers;
+      }
+
+      .autre {
+        grid-area: autre;
+      }
+    }
+
+    li {
+      width: 100%;
+      display: flex;
+
+      a {
+        width: 100%;
+        @include bouton(black);
+      }
+    }
+  }
+
+  .anby {
+    grid-area: anby;
+    position: relative;
+    top: 0px;
+    height: 79px;
+    width: 100%;
+    z-index: 1;
+
+    &:after {
+      width: calc(100% + 15px);
+      background-image: url(/img/anby.png);
+      height: 236px;
+      content: "";
+      display: block;
+      position: absolute;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: -71px -37px;
+      transform: scaleX(-1);
+      top: -15px;
+      left: 0px;
+
+      @include mediaQueries("small-desktop") {
+        background-size: 256px;
+        height: 236px;
+        background-position: right -10px;
+      }
+    }
+  }
+
+  .sujetGestion {
+    grid-area: sujetGestion;
+    z-index: 2;
+  }
+
+  .pokeweb {
+    grid-area: pokeweb;
+  }
+
+  ul.prezGrp {
+    @extend %list;
+    display: grid;
+    width: 100%;
+    background: tomato;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    grid-template-areas:
+      "grp01 grp02"
+      "grp03 grp04"
+      "archives archives";
+
+    @include mediaQueries("small-desktop") {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "grp01"
+        "grp02"
+        "grp03"
+        "grp04"
+        "archives";
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include container(20px, false);
+    }
+
+    @include GrpStats("grp01");
+    @include GrpStats("grp02");
+    @include GrpStats("grp03");
+    @include GrpStats("grp04");
+    @include GrpStats("archives");
+
+    .archives {
+      grid-area: archives;
+      background: $B-primary;
+    }
+
+    .stats {
+      padding: 10px 15px;
+      border-radius: $br-5;
+      box-shadow: $inner;
+    }
+  }
+}
+
+/*************************
+04.
+STAFF
+*************************/
+#c4 {
+  grid-template-areas:
+    "#{areaNumber('staff', 12)}"
+    "#{areaNumber('corbeille', 12)}";
+
+  .staff {
+    grid-area: staff;
+  }
+
+  .corbeille {
+    grid-area: corbeille;
+  }
+}
+
+/*************************
+03.
+ZONE RP
+*************************/
+
+#zoneRP {
+  grid-template-areas: "#{areaNumber('tabs', 4)} #{areaNumber('contenuCategorie', 8)}";
+
+  @include mediaQueries("tablet") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "#{areaNumber('tabs', 4)}"
+      "#{areaNumber('contenuCategorie', 4)}";
+  }
+
+  .tabs {
+    @include container(container, $W-primary);
+    grid-area: tabs;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    div {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .tab {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      background: $W-tertiary;
+      color: red;
+      align-items: center;
+      padding: 10px 15px;
+      gap: 5px;
+      border: $stroke;
+      box-shadow: $inner;
+      border-radius: $br-5;
+      @include text($inter, 16px, $text-black, 600);
+
+      .ville,
+      .capture {
+        @include text($fontello, 16px);
+      }
+
+      .ville:before {
+        content: "\e800";
+        color: $orange;
+      }
+
+      .capture:before {
+        content: "\e802";
+        color: $yellow;
+      }
+
+      &:hover {
+        background: rgba($black, 0.1);
+        color: $black;
+
+        .ville:before,
+        .capture:before {
+          color: $black;
+        }
+      }
+    }
+
+    .active {
+      background: $blue !important;
+      color: $white !important;
+
+      .ville:before,
+      .capture:before {
+        color: $white;
+      }
+    }
+
+    & > div:before {
+      @include text($unbounded, 25px, $text-black, 700);
+    }
+  }
+
+  .contenuCategorie {
+    grid-area: contenuCategorie;
+  }
+}
+
+.tab .content {
+  display: none;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.content.active {
+  display: block;
+}
+
+.tabsVille {
+  &:before {
+    content: "Villes";
+  }
+}
+
+.tabsExterieurs {
+  &:before {
+    content: "Extérieurs";
+  }
+}
+
+.tabsZoneDangereuse {
+  &:before {
+    content: "Zones dangereuses";
+  }
+}
+
+.contenuCategorie {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas:
+    "#{areaNumber('content', 12)}"
+    "#{areaNumber('imgRP', 5)} #{areaNumber('zoneDeCapture', 7)}";
+
+  &.zoneDeCapture-hidden {
+    grid-template-areas:
+      "#{areaNumber('content', 12)}"
+      "#{areaNumber('imgRP', 12)}";
+  }
+
+  @include mediaQueries("tablet") {
+    grid-template-areas:
+      "#{areaNumber('content', 12)}"
+      "#{areaNumber('imgRP', 12)}"
+      "#{areaNumber('zoneDeCapture', 12)}";
+  }
+
+  > div {
+    @include container(container, $W-primary);
+  }
+
+  .category {
+    grid-area: content;
+  }
+
+  img.imgRP {
+    grid-area: imgRP;
+    overflow: clip;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    border-radius: $br-5;
+    border: $stroke;
+  }
+
+  .zoneDeCapture {
+    grid-area: zoneDeCapture;
+    position: relative;
+    overflow: clip;
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    &:after {
+      content: "Zone de capture";
+      position: absolute;
+      bottom: -8px;
+      right: 0px;
+      @include text($unbounded, 30px, rgba($black, 0.2), 700);
+    }
+  }
+}
+
+.zoneDeCapture-hidden .zoneDeCapture {
+  display: none;
+}
+
+.zoneDeCapture img {
+  padding: 10px;
+  border-radius: 100%;
+  border: $stroke;
+
+  &.commun {
+    background: green;
+  }
+
+  &.peuCommun {
+    background: orange;
+  }
+
+  &.rare {
+    background: red;
+  }
+  &.tresRare {
+    background: purple;
+  }
+}

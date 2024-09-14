@@ -1,0 +1,243 @@
+// Définir les points de rupture standards
+$breakpoints: (
+  "large-mobile": 640px,
+  "tablet": 768px,
+  "small-desktop": 1024px,
+  "desktop": 1200px,
+);
+
+// Fonction pour récupérer la valeur du breakpoint
+@function get-breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @return map-get($breakpoints, $breakpoint);
+  } @else {
+    @error "Le breakpoint #{$breakpoint} n'existe pas.";
+  }
+}
+
+// Mixin pour max-width uniquement
+@mixin mediaQueries($breakpoint) {
+  $width: get-breakpoint($breakpoint);
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@function areaNumber($area, $times) {
+  $result: "";
+  @for $i from 1 through $times {
+    $result: "#{$result} #{$area}";
+  }
+  @return $result;
+}
+
+@mixin responsive-grid-bg($columns, $gap, $color) {
+  background-image: repeating-linear-gradient(
+    to right,
+    $color,
+    $color calc((100% - ($columns - 1) * $gap) / $columns),
+    transparent calc((100% - ($columns - 1) * $gap) / $columns),
+    transparent calc((100% - ($columns - 1) * $gap) / $columns + $gap)
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////////// COMPONENT
+///////////////////////////////////////////////////////////////////////////
+$genre: (container, champ, btn, bloc);
+@mixin container($genre: false, $background: false, $borderRadius: false) {
+  background: $background;
+  border: $stroke;
+
+  @if $genre == container {
+    padding: 25px;
+  } @else if $genre == champ {
+    padding: 15px;
+  } @else if $genre == btn {
+    padding: 8px;
+  } @else if $genre == bloc {
+    padding: 10px;
+  } @else {
+    padding: $genre;
+  }
+
+  @if $borderRadius == false {
+    border-radius: $br-10;
+  } @else {
+    border-radius: $borderRadius;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////////// REDIMENSIONNEMENT
+///////////////////////////////////////////////////////////////////////////
+@mixin taille($height, $width) {
+  width: $width;
+  height: $height;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////////// TEXTE / ECRITURE
+///////////////////////////////////////////////////////////////////////////
+@mixin text($font-family, $font-size: false, $color: false, $font-weight: false, $line-height: false) {
+  font-family: $font-family;
+
+  @if $font-size == false {
+    font-size: 16px;
+  } @else {
+    font-size: $font-size;
+  }
+
+  @if $font-weight == false {
+    font-weight: 400;
+  } @else {
+    font-weight: $font-weight;
+  }
+
+  @if $line-height == false {
+    line-height: $font-size + 3px;
+  } @else {
+    line-height: $line-height;
+  }
+
+  @if $color == false {
+    color: $text-black;
+  } @else {
+    color: $color;
+  }
+}
+
+// Mixin pour gérer des éléments spécifiques dans une classe
+@mixin flexText($element, $font-family, $font-size: false, $color: false, $font-weight: false, $line-height: false) {
+  #{$element} {
+    @include text($font-family, $font-size, $color, $font-weight, $line-height);
+
+    // Vérifie si l'élément est un titre et applique l'extension si nécessaire
+    @if $element == "h1" or $element == "h2" or $element == "h3" or $element == "h4" or $element == "h5" or $element == "h6" {
+      @extend %headline; // Utilisation de l'extension pour les titres
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////////// POSITIONNEMENT
+///////////////////////////////////////////////////////////////////////////
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexColumnStart {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////////// BTN
+///////////////////////////////////////////////////////////////////////////
+@mixin bouton($color) {
+  @if $color == orange {
+    background: $orange;
+  } @else if $color == blue {
+    background: $blue;
+  } @else if $color == yellow {
+    background: $yellow;
+    color: $text-black;
+  } @else if $color == pink {
+    background: $pink;
+  } @else if $color == black {
+    background: $B-primary;
+  } @else {
+    background: grey;
+  }
+  border: $stroke;
+  color: $text-white;
+  box-shadow: $inner;
+  padding: 10px 15px;
+  transition: 0.2s;
+  font-family: $inter;
+  border-radius: $br-5;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:hover {
+    @if $color == orange {
+      color: $orange;
+    } @else if $color == blue {
+      color: $blue;
+    } @else if $color == yellow {
+      color: $yellow;
+    } @else if $color == pink {
+      color: $pink;
+    } @else if $color == black {
+      color: $text-black;
+    } @else {
+      color: $B-primary;
+    }
+
+    background: $W-secondary;
+    transition: 0.2s;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+//////////// BTN PREZ
+///////////////////////////////////////////////////////////////////////////
+///
+$BtnPrez: (
+  "grp01": $grp01,
+  "grp02": $grp02,
+  "grp03": $grp03,
+  "grp04": $grp04,
+  "archives": $B-primary,
+);
+
+@mixin GrpStats($grp) {
+  $color: map-get($BtnPrez, $grp);
+
+  .#{$grp} {
+    grid-area: $grp;
+    background: $color;
+    position: relative;
+    overflow: clip;
+
+    a {
+      color: blue;
+      z-index: 2;
+      @include text($unbounded, 20px, $text-white, 600);
+    }
+
+    .stats {
+      background: desaturate(darken($color, 10%), 30%);
+      @include text($inter, 16px, $text-white, 600);
+      z-index: 2;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background: linear-gradient(90deg, desaturate(darken($color, 10%), 30%) 0%, rgba(255, 255, 255, 0) 100%);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 0px;
+      height: 80px;
+      transition: 0.5s;
+      opacity: 0;
+      z-index: 1;
+    }
+  }
+
+  li:hover {
+    &:after {
+      width: 100%;
+      transition: 0.5s;
+      opacity: 1;
+    }
+  }
+}

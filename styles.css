@@ -1,0 +1,1381 @@
+@charset "UTF-8";
+/*Map associant chaque classe spécifique à la variable de couleur*/
+/*TYPES*/
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+#qeel .users p, .guidebook p {
+  margin: 0;
+  padding: 0;
+}
+
+.guidebook h2 {
+  margin: 0;
+}
+
+#c2 ul.prezGrp, #c2 .gestion ul.lienGestion, .liens {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 110px 50px 25px 50px;
+  background-image: url("/background.png");
+  background-attachment: fixed;
+}
+
+*:not(img) {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.grp01,
+grp01 {
+  color: #fc7545;
+}
+
+.grp02,
+grp02 {
+  color: #7875db;
+}
+
+.grp03,
+grp03 {
+  color: #5fd469;
+}
+
+.grp04,
+grp04 {
+  color: #efc54b;
+}
+
+.admin,
+admin {
+  color: #707086;
+}
+
+.nouvelArrivant,
+nouvelArrivant {
+  color: #5a5a5a;
+}
+
+.inactif,
+inactif {
+  color: #a6a6a6;
+}
+
+bleu {
+  color: #448dbb;
+}
+
+orange {
+  color: #bb2d11;
+}
+
+#corpsForum {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+  min-width: 350px;
+  max-width: 1200px;
+  background-image: repeating-linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.2) calc((100% - 165px) / 12), transparent calc((100% - 165px) / 12), transparent calc((100% - 165px) / 12 + 15px));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 1024px) {
+  #corpsForum {
+    background-image: repeating-linear-gradient(to right, rgba(241, 117, 15, 0.2), rgba(241, 117, 15, 0.2) calc((100% - 105px) / 8), transparent calc((100% - 105px) / 8), transparent calc((100% - 105px) / 8 + 15px));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+@media (max-width: 768px) {
+  #corpsForum {
+    background-image: repeating-linear-gradient(to right, rgba(28, 135, 235, 0.2), rgba(28, 135, 235, 0.2) calc((100% - 45px) / 4), transparent calc((100% - 45px) / 4), transparent calc((100% - 45px) / 4 + 15px));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+@media (max-width: 640px) {
+  #corpsForum {
+    background-image: repeating-linear-gradient(to right, rgba(18, 224, 162, 0.2), rgba(18, 224, 162, 0.2) calc((100% - 15px) / 2), transparent calc((100% - 15px) / 2), transparent calc((100% - 15px) / 2 + 15px));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+/******************/
+#navbar {
+  background: #1c1c1f;
+  border-radius: 100px;
+  display: flex;
+  width: calc(100% - 100px);
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  top: 25px;
+  position: fixed;
+  z-index: 999;
+}
+
+.joueur {
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#pseudoJoueur {
+  font-family: "Unbounded";
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #fc7545;
+}
+@media (max-width: 640px) {
+  #pseudoJoueur {
+    display: none;
+  }
+}
+
+#avatarJoueur {
+  width: 50px;
+  height: 50px;
+}
+#avatarJoueur img {
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 5px solid #fc7545;
+}
+
+.liens {
+  background: green;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.liens a {
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #cedbe3;
+}
+.liens img {
+  display: none;
+}
+
+/* Style pour la modal */
+.modal {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  z-index: 1000; /* Au-dessus de tout autre contenu */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#header {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /*forum rpg city*/
+  /*nom du forum*/
+  /*img*/
+}
+#header .infos {
+  width: 50%;
+  margin-right: 25px;
+  margin-bottom: 10px;
+}
+#header .titre {
+  width: calc(100% - 50px);
+  height: 100%;
+  padding: 0px 25px;
+}
+#header .imgHeader {
+  width: 100%;
+  object-fit: contain;
+  margin-top: -22%;
+  top: 0px;
+  z-index: 1;
+}
+
+#pa {
+  background: #d8e2e9;
+  margin-top: -15px;
+  border-radius: 0px 0px 10px 10px;
+  padding: 25px;
+  height: 150px;
+}
+
+.topImportant {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas: " guidebook guidebook guidebook guidebook guidebook guidebook  news news news news news news" " guidebook guidebook guidebook guidebook guidebook guidebook  topsites topsites topsites topsites topsites topsites";
+}
+@media (max-width: 768px) {
+  .topImportant {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: " guidebook guidebook guidebook guidebook" " news news news news" " topsites topsites topsites topsites";
+  }
+}
+.topImportant .btn {
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #cedbe3;
+}
+
+/******************* ALL PAGES, GUIDEBOOK, PATCHNOTES ET TOP SITES ****************/
+.guidebook {
+  position: relative;
+  grid-area: guidebook;
+  overflow: clip;
+  background: #448dbb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+.guidebook h2 {
+  font-family: "Unbounded";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 39px;
+  color: #cedbe3;
+}
+.guidebook a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .guidebook a {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .guidebook a {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (max-width: 640px) {
+  .guidebook a {
+    gap: 6px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.guidebook p {
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #cedbe3;
+}
+.guidebook:before {
+  position: absolute;
+  right: -50px;
+  bottom: -100px;
+  content: "\e802";
+  transform: rotate(-18.168deg);
+  font-family: "fontello";
+  font-size: 300px;
+  font-weight: 400;
+  line-height: 303px;
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.bloc {
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  color: #cedbe3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: clip;
+}
+.bloc:before {
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "fontello";
+  font-size: 125px;
+  font-weight: 400;
+  line-height: 128px;
+  color: rgba(255, 255, 255, 0.15);
+}
+@media (max-width: 1024px) {
+  .bloc {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+  }
+}
+@media (max-width: 768px) {
+  .bloc {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (max-width: 640px) {
+  .bloc {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+  }
+}
+
+.news {
+  grid-area: news;
+  background: #bb2d11;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+.news:before {
+  content: "\e804";
+}
+
+.topsites {
+  grid-area: topsites;
+  background: #a2723a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+.topsites:before {
+  content: "\e803";
+}
+
+/*************************
+*************************
+CATEGORIES
+*************************
+*************************/
+.categories {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.titreCategorie {
+  background: #1c1c1f;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  font-family: "Unbounded";
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 58px;
+  color: #cedbe3;
+}
+
+/*************************
+AFFICHAGE CATEGORIE
+*************************/
+.category {
+  background: #d8e2e9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  /*titre de la catégorie*/
+  /*affichage du dernier sujet*/
+}
+.category .titre {
+  align-items: center;
+  margin-bottom: 15px;
+  height: 40px;
+  display: flex;
+  gap: 15px;
+  /*new ou noNew message*/
+}
+.category .titre a {
+  font-family: "Unbounded";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27px;
+  color: #448dbb;
+}
+.category .titre .icon-new {
+  grid-area: iconStatut;
+  width: 40px;
+  height: 40px;
+  background: #448dbb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 100%;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.category .titre .icon-new:before {
+  content: "\e804";
+  font-family: "fontello";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  color: #fff;
+}
+.category .titre .icon-noNew {
+  display: none;
+}
+.category .dernierSujet {
+  display: grid;
+  grid-template-columns: 70px auto;
+  grid-template-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas: "avatar titreSujet" "avatar date" "avatar auteur";
+}
+.category .avatar {
+  grid-area: avatar;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 5px solid #fafbfc;
+}
+.category .titreSujet {
+  grid-area: titreSujet;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #27282b;
+}
+.category .date {
+  grid-area: date;
+  font-family: "inter";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  color: rgba(0, 0, 0, 0.35);
+}
+.category .auteur {
+  grid-area: auteur;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #27282b;
+}
+.category .titre a,
+.category .dernierSujet {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  min-width: 185px;
+}
+
+/*************************
+01.
+ADMINISTRATIF
+*************************/
+#c1 {
+  grid-template-areas: " communication communication communication communication  absences absences absences absences   partenariats partenariats partenariats partenariats";
+  /** catégories **/
+}
+@media (max-width: 1024px) {
+  #c1 {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: " communication communication communication communication  absences absences absences absences" " partenariats partenariats partenariats partenariats partenariats partenariats partenariats partenariats";
+  }
+}
+@media (max-width: 768px) {
+  #c1 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: " communication communication communication communication" " absences absences absences absences" " partenariats partenariats partenariats partenariats";
+  }
+}
+#c1 .Communication {
+  grid-area: communication;
+}
+#c1 .Absences {
+  grid-area: absences;
+}
+#c1 .Partenariats {
+  grid-area: partenariats;
+}
+
+/*************************
+02.
+CREATION ET GESTION
+*************************/
+#c2 {
+  grid-template-areas: " presentation presentation presentation presentation presentation presentation presentation presentation  nicole nicole nicole nicole" " presentation presentation presentation presentation presentation presentation presentation presentation  liensPrez liensPrez liensPrez liensPrez" " presentation presentation presentation presentation presentation presentation presentation presentation  sujetPrez sujetPrez sujetPrez sujetPrez" " anby anby anby anby  gestion gestion gestion gestion gestion gestion gestion gestion" " sujetGestion sujetGestion sujetGestion sujetGestion  gestion gestion gestion gestion gestion gestion gestion gestion" " pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb";
+  /** catégories **/
+  /*PRESENTATIONS*/
+  /************************************/
+  /*GESTION*/
+}
+@media (max-width: 1024px) {
+  #c2 {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: " presentation presentation presentation presentation presentation  nicole nicole nicole" " sujetPrez sujetPrez sujetPrez sujetPrez sujetPrez  liensPrez liensPrez liensPrez" " anby anby  gestion gestion gestion gestion gestion gestion" " sujetGestion sujetGestion sujetGestion sujetGestion sujetGestion sujetGestion sujetGestion sujetGestion" " pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb pokeweb";
+  }
+}
+@media (max-width: 768px) {
+  #c2 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: " presentation presentation presentation presentation" "  liensPrez liensPrez liensPrez liensPrez" " sujetPrez sujetPrez sujetPrez sujetPrez" " gestion gestion gestion gestion" " sujetGestion sujetGestion sujetGestion sujetGestion" " pokeweb pokeweb pokeweb pokeweb";
+  }
+  #c2 .nicole,
+  #c2 .anby {
+    display: none;
+  }
+}
+#c2 .presentation {
+  grid-area: presentation;
+  z-index: 2;
+}
+#c2 .nicole {
+  grid-area: nicole;
+  position: relative;
+  top: 0px;
+  height: 128px;
+  width: 100%;
+  z-index: 1;
+}
+#c2 .nicole:after {
+  width: calc(100% + 15px);
+  background-image: url(/img/nicole.png);
+  height: 504px;
+  content: "";
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0px 15px;
+  top: -125px;
+  left: -15px;
+}
+@media (max-width: 1024px) {
+  #c2 .nicole:after {
+    top: 0px;
+    width: calc(100% + 15px);
+    left: -15px;
+    height: 683px;
+    background-position: right 0px;
+  }
+}
+#c2 .liensPrez {
+  grid-area: liensPrez;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+#c2 .liensPrez a {
+  background: #1c1c1f;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #cedbe3;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  padding: 10px 15px;
+  transition: 0.2s;
+  font-family: "inter";
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+}
+#c2 .liensPrez a:hover {
+  color: #27282b;
+  background: #e8eef2;
+  transition: 0.2s;
+}
+#c2 .sujetPrez {
+  grid-area: sujetPrez;
+  z-index: 2;
+}
+#c2 .gestion {
+  grid-area: gestion;
+}
+#c2 .gestion ul.lienGestion {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas: "captures boutique admin" "evolutions divers autre";
+  /*liens*/
+}
+@media (max-width: 768px) {
+  #c2 .gestion ul.lienGestion {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "captures boutique" "admin evolutions" "divers autre";
+  }
+}
+@media (max-width: 640px) {
+  #c2 .gestion ul.lienGestion {
+    grid-template-columns: 1fr;
+    grid-template-areas: "captures" "boutique" "admin" "evolutions" "divers" "autre";
+  }
+}
+#c2 .gestion ul.lienGestion .captures {
+  grid-area: captures;
+}
+#c2 .gestion ul.lienGestion .boutique {
+  grid-area: boutique;
+}
+#c2 .gestion ul.lienGestion .admin {
+  grid-area: admin;
+}
+#c2 .gestion ul.lienGestion .evolutions {
+  grid-area: evolutions;
+}
+#c2 .gestion ul.lienGestion .divers {
+  grid-area: divers;
+}
+#c2 .gestion ul.lienGestion .autre {
+  grid-area: autre;
+}
+#c2 .gestion li {
+  width: 100%;
+  display: flex;
+}
+#c2 .gestion li a {
+  width: 100%;
+  background: #1c1c1f;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #cedbe3;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  padding: 10px 15px;
+  transition: 0.2s;
+  font-family: "inter";
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+#c2 .gestion li a:hover {
+  color: #27282b;
+  background: #e8eef2;
+  transition: 0.2s;
+}
+#c2 .anby {
+  grid-area: anby;
+  position: relative;
+  top: 0px;
+  height: 79px;
+  width: 100%;
+  z-index: 1;
+}
+#c2 .anby:after {
+  width: calc(100% + 15px);
+  background-image: url(/img/anby.png);
+  height: 236px;
+  content: "";
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -71px -37px;
+  transform: scaleX(-1);
+  top: -15px;
+  left: 0px;
+}
+@media (max-width: 1024px) {
+  #c2 .anby:after {
+    background-size: 256px;
+    height: 236px;
+    background-position: right -10px;
+  }
+}
+#c2 .sujetGestion {
+  grid-area: sujetGestion;
+  z-index: 2;
+}
+#c2 .pokeweb {
+  grid-area: pokeweb;
+}
+#c2 ul.prezGrp {
+  display: grid;
+  width: 100%;
+  background: tomato;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas: "grp01 grp02" "grp03 grp04" "archives archives";
+}
+@media (max-width: 1024px) {
+  #c2 ul.prezGrp {
+    grid-template-columns: 1fr;
+    grid-template-areas: "grp01" "grp02" "grp03" "grp04" "archives";
+  }
+}
+#c2 ul.prezGrp li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: false;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+#c2 ul.prezGrp .grp01 {
+  grid-area: "grp01";
+  background: #fc7545;
+  position: relative;
+  overflow: clip;
+}
+#c2 ul.prezGrp .grp01 a {
+  color: blue;
+  z-index: 2;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #cedbe3;
+}
+#c2 ul.prezGrp .grp01 .stats {
+  background: #d76137;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #cedbe3;
+  z-index: 2;
+}
+#c2 ul.prezGrp .grp01:after {
+  content: "";
+  display: block;
+  background: linear-gradient(90deg, #d76137 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 80px;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 1;
+}
+#c2 ul.prezGrp li:hover:after {
+  width: 100%;
+  transition: 0.5s;
+  opacity: 1;
+}
+#c2 ul.prezGrp .grp02 {
+  grid-area: "grp02";
+  background: #7875db;
+  position: relative;
+  overflow: clip;
+}
+#c2 ul.prezGrp .grp02 a {
+  color: blue;
+  z-index: 2;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #cedbe3;
+}
+#c2 ul.prezGrp .grp02 .stats {
+  background: #706eaf;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #cedbe3;
+  z-index: 2;
+}
+#c2 ul.prezGrp .grp02:after {
+  content: "";
+  display: block;
+  background: linear-gradient(90deg, #706eaf 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 80px;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 1;
+}
+#c2 ul.prezGrp li:hover:after {
+  width: 100%;
+  transition: 0.5s;
+  opacity: 1;
+}
+#c2 ul.prezGrp .grp03 {
+  grid-area: "grp03";
+  background: #5fd469;
+  position: relative;
+  overflow: clip;
+}
+#c2 ul.prezGrp .grp03 a {
+  color: blue;
+  z-index: 2;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #cedbe3;
+}
+#c2 ul.prezGrp .grp03 .stats {
+  background: #5da363;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #cedbe3;
+  z-index: 2;
+}
+#c2 ul.prezGrp .grp03:after {
+  content: "";
+  display: block;
+  background: linear-gradient(90deg, #5da363 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 80px;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 1;
+}
+#c2 ul.prezGrp li:hover:after {
+  width: 100%;
+  transition: 0.5s;
+  opacity: 1;
+}
+#c2 ul.prezGrp .grp04 {
+  grid-area: "grp04";
+  background: #efc54b;
+  position: relative;
+  overflow: clip;
+}
+#c2 ul.prezGrp .grp04 a {
+  color: blue;
+  z-index: 2;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #cedbe3;
+}
+#c2 ul.prezGrp .grp04 .stats {
+  background: #c6a441;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #cedbe3;
+  z-index: 2;
+}
+#c2 ul.prezGrp .grp04:after {
+  content: "";
+  display: block;
+  background: linear-gradient(90deg, #c6a441 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 80px;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 1;
+}
+#c2 ul.prezGrp li:hover:after {
+  width: 100%;
+  transition: 0.5s;
+  opacity: 1;
+}
+#c2 ul.prezGrp .archives {
+  grid-area: "archives";
+  background: #1c1c1f;
+  position: relative;
+  overflow: clip;
+}
+#c2 ul.prezGrp .archives a {
+  color: blue;
+  z-index: 2;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #cedbe3;
+}
+#c2 ul.prezGrp .archives .stats {
+  background: #040404;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #cedbe3;
+  z-index: 2;
+}
+#c2 ul.prezGrp .archives:after {
+  content: "";
+  display: block;
+  background: linear-gradient(90deg, #040404 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 80px;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 1;
+}
+#c2 ul.prezGrp li:hover:after {
+  width: 100%;
+  transition: 0.5s;
+  opacity: 1;
+}
+#c2 ul.prezGrp .archives {
+  grid-area: archives;
+  background: #1c1c1f;
+}
+#c2 ul.prezGrp .stats {
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+/*************************
+04.
+STAFF
+*************************/
+#c4 {
+  grid-template-areas: " staff staff staff staff staff staff staff staff staff staff staff staff" " corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille";
+}
+#c4 .staff {
+  grid-area: staff;
+}
+#c4 .corbeille {
+  grid-area: corbeille;
+}
+
+/*************************
+03.
+ZONE RP
+*************************/
+#zoneRP {
+  grid-template-areas: " tabs tabs tabs tabs  contenuCategorie contenuCategorie contenuCategorie contenuCategorie contenuCategorie contenuCategorie contenuCategorie contenuCategorie";
+}
+@media (max-width: 768px) {
+  #zoneRP {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: " tabs tabs tabs tabs" " contenuCategorie contenuCategorie contenuCategorie contenuCategorie";
+  }
+}
+#zoneRP .tabs {
+  background: #d8e2e9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  grid-area: tabs;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#zoneRP .tabs div {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+#zoneRP .tabs .tab {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  background: #fafbfc;
+  color: red;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 5px;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #27282b;
+}
+#zoneRP .tabs .tab .ville,
+#zoneRP .tabs .tab .capture {
+  font-family: "fontello";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #27282b;
+}
+#zoneRP .tabs .tab .ville:before {
+  content: "\e800";
+  color: #bb2d11;
+}
+#zoneRP .tabs .tab .capture:before {
+  content: "\e802";
+  color: #a2723a;
+}
+#zoneRP .tabs .tab:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+#zoneRP .tabs .tab:hover .ville:before,
+#zoneRP .tabs .tab:hover .capture:before {
+  color: #000;
+}
+#zoneRP .tabs .active {
+  background: #448dbb !important;
+  color: #fff !important;
+}
+#zoneRP .tabs .active .ville:before,
+#zoneRP .tabs .active .capture:before {
+  color: #fff;
+}
+#zoneRP .tabs > div:before {
+  font-family: "Unbounded";
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #27282b;
+}
+#zoneRP .contenuCategorie {
+  grid-area: contenuCategorie;
+}
+
+.tab .content {
+  display: none;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.content.active {
+  display: block;
+}
+
+.tabsVille:before {
+  content: "Villes";
+}
+
+.tabsExterieurs:before {
+  content: "Extérieurs";
+}
+
+.tabsZoneDangereuse:before {
+  content: "Zones dangereuses";
+}
+
+.contenuCategorie {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas: " content content content content content content content content content content content content" " imgRP imgRP imgRP imgRP imgRP  zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture";
+}
+.contenuCategorie.zoneDeCapture-hidden {
+  grid-template-areas: " content content content content content content content content content content content content" " imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP";
+}
+@media (max-width: 768px) {
+  .contenuCategorie {
+    grid-template-areas: " content content content content content content content content content content content content" " imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP imgRP" " zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture zoneDeCapture";
+  }
+}
+.contenuCategorie > div {
+  background: #d8e2e9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+.contenuCategorie .category {
+  grid-area: content;
+}
+.contenuCategorie img.imgRP {
+  grid-area: imgRP;
+  overflow: clip;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.contenuCategorie .zoneDeCapture {
+  grid-area: zoneDeCapture;
+  position: relative;
+  overflow: clip;
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.contenuCategorie .zoneDeCapture:after {
+  content: "Zone de capture";
+  position: absolute;
+  bottom: -8px;
+  right: 0px;
+  font-family: "Unbounded";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 33px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.zoneDeCapture-hidden .zoneDeCapture {
+  display: none;
+}
+
+.zoneDeCapture img {
+  padding: 10px;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.zoneDeCapture img.commun {
+  background: green;
+}
+.zoneDeCapture img.peuCommun {
+  background: orange;
+}
+.zoneDeCapture img.rare {
+  background: red;
+}
+.zoneDeCapture img.tresRare {
+  background: purple;
+}
+
+/*************************
+*************************
+QEEL
+*************************
+*************************/
+#qeel {
+  display: grid;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: " dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit" " Connected Connected Connected Connected  Membres Membres Membres Membres  Messages Messages Messages Messages" " Connected Connected Connected Connected  enLigne enLigne enLigne enLigne enLigne enLigne enLigne enLigne";
+  /*dernier inscrit sur le forum*/
+  /* connectés il y a x et en ligne*/
+  /* connectés il y a x heures */
+  /* partie "en ligne" */
+  /*messages et membres*/
+}
+@media (max-width: 1024px) {
+  #qeel {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: " dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit dernierInscrit" " Connected Connected Connected Connected  Membres Membres  Messages Messages" " Connected Connected Connected Connected  enLigne enLigne enLigne enLigne";
+  }
+}
+@media (max-width: 768px) {
+  #qeel {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: " dernierInscrit dernierInscrit dernierInscrit dernierInscrit" " Connected Connected Connected Connected" " enLigne enLigne enLigne  Membres" " enLigne enLigne enLigne  Messages";
+  }
+}
+@media (max-width: 640px) {
+  #qeel {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: " dernierInscrit dernierInscrit" " Connected Connected" " enLigne  Membres" " enLigne  Messages";
+  }
+}
+#qeel .dernierInscrit {
+  position: relative;
+  overflow: clip;
+  grid-area: dernierInscrit;
+  background: #1c1c1f;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  font-family: "Unbounded";
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 38px;
+  color: #cedbe3;
+}
+#qeel .dernierInscrit strong {
+  position: relative;
+  z-index: 3;
+}
+#qeel .dernierInscrit:after {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  z-index: 2;
+  display: block;
+  margin: auto 0;
+  background: linear-gradient(90deg, #1c1c1f 0%, rgba(28, 28, 31, 0) 100%);
+  content: "";
+  width: 250px;
+  height: 250px;
+}
+#qeel .dernierInscrit img {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  z-index: 1;
+  margin: auto 0;
+  width: 250px;
+  height: 250px;
+}
+#qeel .users {
+  display: flex;
+  flex-direction: column;
+  background: #d8e2e9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+#qeel .users p {
+  overflow: auto;
+  flex: 1;
+  padding-right: 10px;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #27282b;
+}
+#qeel .users:before {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  color: #27282b;
+}
+#qeel .connected {
+  height: 230px;
+  grid-area: Connected;
+}
+#qeel .connected:before {
+  content: "Dernières connexions";
+}
+@media (max-width: 1024px) {
+  #qeel .connected {
+    height: 324px;
+  }
+}
+@media (max-width: 768px) {
+  #qeel .connected {
+    height: 180px;
+  }
+}
+#qeel .enLigne {
+  height: 140px;
+  grid-area: enLigne;
+}
+#qeel .enLigne:before {
+  content: "Actuellement dans Neon Ridge";
+}
+@media (max-width: 768px) {
+  #qeel .enLigne:before {
+    content: "En ligne";
+  }
+}
+@media (max-width: 1024px) {
+  #qeel .enLigne {
+    height: 211px;
+  }
+}
+#qeel .stats {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Unbounded";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  color: #fff;
+}
+@media (max-width: 1024px) {
+  #qeel .stats {
+    gap: 0px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+#qeel .membres {
+  grid-area: Membres;
+  background: #448dbb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+#qeel .messages {
+  grid-area: Messages;
+  background: #bb2d11;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}

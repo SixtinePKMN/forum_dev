@@ -1,0 +1,159 @@
+/*************************
+*************************
+QEEL
+*************************
+*************************/
+#qeel {
+  display: grid;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+
+  // Mise en page par défaut (desktop)
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "#{areaNumber('dernierInscrit', 12)}"
+    "#{areaNumber('Connected', 4)} #{areaNumber('Membres', 4)} #{areaNumber('Messages', 4)}"
+    "#{areaNumber('Connected', 4)} #{areaNumber('enLigne', 8)}";
+
+  @include mediaQueries("small-desktop") {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+      "#{areaNumber('dernierInscrit', 8)}"
+      "#{areaNumber('Connected', 4)} #{areaNumber('Membres', 2)} #{areaNumber('Messages', 2)}"
+      "#{areaNumber('Connected', 4)} #{areaNumber('enLigne', 4)}";
+  }
+
+  @include mediaQueries("tablet") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "#{areaNumber('dernierInscrit', 4)}"
+      "#{areaNumber('Connected', 4)}"
+      "#{areaNumber('enLigne', 3)} #{areaNumber('Membres', 1)}"
+      "#{areaNumber('enLigne', 3)} #{areaNumber('Messages', 1)}";
+  }
+
+  @include mediaQueries("large-mobile") {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "#{areaNumber('dernierInscrit', 2)}"
+      "#{areaNumber('Connected', 2)}"
+      "#{areaNumber('enLigne', 1)} #{areaNumber('Membres', 1)}"
+      "#{areaNumber('enLigne', 1)} #{areaNumber('Messages', 1)}";
+  }
+
+  /*dernier inscrit sur le forum*/
+  .dernierInscrit {
+    position: relative;
+    overflow: clip;
+    grid-area: dernierInscrit;
+    @include container(container, $B-primary);
+    @include text($unbounded, 35px, $text-white, 700);
+
+    strong {
+      position: relative;
+      z-index: 3;
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0px;
+      bottom: 0;
+      z-index: 2;
+      display: block;
+      margin: auto 0;
+      background: linear-gradient(90deg, $B-primary 0%, rgba($B-primary, 0) 100%);
+      content: "";
+      @include taille(250px, 250px);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0px;
+      bottom: 0;
+      z-index: 1;
+      margin: auto 0;
+      @include taille(250px, 250px);
+    }
+  }
+
+  /* connectés il y a x et en ligne*/
+  .users {
+    display: flex;
+    flex-direction: column;
+    @include container(container, $W-primary);
+
+    p {
+      overflow: auto;
+      flex: 1;
+      padding-right: 10px;
+      @extend %paragraph;
+      @include text($inter, 16px, $text-black, 600);
+    }
+
+    &:before {
+      display: block;
+      margin-bottom: 10px;
+      @include text($unbounded, 20px, $text-black, 700);
+    }
+  }
+
+  /* connectés il y a x heures */
+  .connected {
+    height: 230px;
+    grid-area: Connected;
+
+    &:before {
+      content: "Dernières connexions";
+    }
+
+    @include mediaQueries("small-desktop") {
+      height: 324px;
+    }
+
+    @include mediaQueries("tablet") {
+      height: 180px;
+    }
+  }
+
+  /* partie "en ligne" */
+  .enLigne {
+    height: 140px;
+    grid-area: enLigne;
+
+    &:before {
+      content: "Actuellement dans Neon Ridge";
+
+      @include mediaQueries("tablet") {
+        content: "En ligne";
+      }
+    }
+
+    @include mediaQueries("small-desktop") {
+      height: 211px;
+    }
+  }
+
+  /*messages et membres*/
+  .stats {
+    gap: 5px;
+    @include flexCenter;
+    @include text($unbounded, 20px, $white, 700);
+
+    @include mediaQueries("small-desktop") {
+      gap: 0px;
+      @include flexColumnStart;
+    }
+  }
+
+  .membres {
+    grid-area: Membres;
+    @include container(container, $blue);
+  }
+  .messages {
+    grid-area: Messages;
+    @include container(container, $orange);
+  }
+}

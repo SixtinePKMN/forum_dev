@@ -1,0 +1,32 @@
+[
+  {
+    "titre": "Communication",
+    "statut": "new",
+    "description": "Description de la catégorie 1.",
+    "dernierSujet": "Communiquer avec nous sur un long titre pour vérifier",
+    "icon": "avatar",
+    "date": "Jeu 5 Sep 2024 - 12:50",
+    "auteur": "Lise Eurelt",
+    "group": "grp01"
+  },
+  {
+    "titre": "Absences",
+    "statut": "noNew",
+    "description": "Description de la catégorie 2.",
+    "dernierSujet": "Sujet 2",
+    "icon": "avatar",
+    "date": "Jeu 5 Sep 2024 - 12:50",
+    "auteur": "Hycast Racine-Harlowe",
+    "group": "grp02"
+  },
+  {
+    "titre": "Partenariats",
+    "statut": "new",
+    "description": "Description de la catégorie 2.",
+    "dernierSujet": "Sujet 2",
+    "icon": "avatar",
+    "date": "Jeu 5 Sep 2024 - 12:50",
+    "auteur": "Gallagher Nomdefamillelongomg",
+    "group": "grp03"
+  }
+]

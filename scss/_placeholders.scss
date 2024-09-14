@@ -1,0 +1,19 @@
+%scrollbar {
+  scrollbar-color: rgba($black, 0.2) rgba($black, 0.2);
+  scrollbar-width: thin;
+}
+
+%paragraph {
+  margin: 0;
+  padding: 0;
+}
+
+%headline {
+  margin: 0;
+}
+
+%list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

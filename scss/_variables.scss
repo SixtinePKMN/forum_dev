@@ -1,0 +1,127 @@
+$W-primary: #d8e2e9;
+$W-secondary: #e8eef2;
+$W-tertiary: #fafbfc;
+
+$white: #fff;
+
+$B-primary: #1c1c1f;
+$B-secondary: #151618;
+$B-tertiary: #101112;
+
+$black: #000;
+
+$stroke: 1px solid rgba($black, 0.1);
+$shadow: 1px 1px 2px rgba($black, 0.35);
+$inner: 2px 2px 2px 0px rgba($black, 0.1) inset;
+
+$blue: #448dbb;
+$orange: #bb2d11;
+$yellow: #a2723a;
+$pink: #b1665d;
+
+$text-white: #cedbe3;
+$text-black: #27282b;
+$links: $orange;
+
+$grp01: #fc7545;
+$grp02: #7875db;
+$grp03: #5fd469;
+$grp04: #efc54b;
+$admin: #707086;
+$nouvelArrivant: #5a5a5a;
+$inactif: #a6a6a6;
+
+$grp01-D: desaturate(darken($grp01, 10%), 30%);
+$grp02-D: desaturate(darken($grp02, 10%), 30%);
+$grp03-D: desaturate(darken($grp03, 10%), 30%);
+$grp04-D: desaturate(darken($grp04, 10%), 30%);
+$admin-D: desaturate(darken($admin, 10%), 30%);
+$nouvelArrivant-D: desaturate(darken($nouvelArrivant, 10%), 30%);
+$inactif-D: desaturate(darken($inactif, 10%), 30%);
+
+$success: #03a65a;
+$help: #0070e0;
+$danger: #db3056;
+$information: #fc8621;
+
+$br-5: 5px;
+$br-10: 10px;
+$br-100: 100px;
+
+$gap-med: 15px;
+
+$unbounded: "Unbounded";
+$inter: "inter";
+$fontawesome: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+$fontello: "fontello";
+
+$bgcolor: #686263;
+$bgimg: url("/background.png");
+
+/*Map associant chaque classe spécifique à la variable de couleur*/
+$colorMap: (
+  admin: $admin,
+  nouvelArrivant: $nouvelArrivant,
+  inactif: $inactif,
+);
+
+/*TYPES*/
+$AcierC: #23647a;
+$AcierBg: #60a2b9;
+
+$CombatC: #d73d0d;
+$CombatBg: #ff8100;
+
+$DragonC: #0e22b5;
+$DragonBg: #4f60e2;
+
+$EauC: #053c7c;
+$EauBg: #2481ef;
+
+$ElectrikC: #ad7521;
+$ElectrikBg: #fac100;
+
+$FeeC: #cc28cc;
+$FeeBg: #ef70ef;
+
+$FeuC: #930a0b;
+$FeuBg: #e72324;
+
+$GlaceC: #0f88a5;
+$GlaceBg: #3dd9ff;
+
+$LumiereC: #818481;
+$LumiereBg: #d5d8d5;
+
+$InsecteC: #495108;
+$InsecteBg: #92a212;
+
+$NormalC: #545854;
+$NormalBg: #a0a2a0;
+
+$PlanteC: #1f5911;
+$PlanteBg: #3da224;
+
+$PoisonC: #4b176e;
+$PoisonBg: #923fcc;
+
+$PsyC: #b60a43;
+$PsyBg: #ef3f7a;
+
+$RocheC: #635d36;
+$RocheBg: #b0aa82;
+
+$SonC: #2f594e;
+$SonBg: #689a8d;
+
+$SolC: #512a0b;
+$SolBg: #92501b;
+
+$SpectreC: #481a48;
+$SpectreBg: #703f70;
+
+$TenebresC: #221715;
+$TenebresBg: #4f3f3d;
+
+$VolC: #3072b1;
+$VolBg: #82baef;

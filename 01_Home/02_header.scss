@@ -1,0 +1,33 @@
+#header {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  /*forum rpg city*/
+  .infos {
+    width: 50%;
+    margin-right: 25px;
+    margin-bottom: 10px;
+  }
+
+  /*nom du forum*/
+  .titre {
+    width: calc(100% - 50px);
+    height: 100%;
+    padding: 0px 25px;
+  }
+
+  /*img*/
+  .imgHeader {
+    width: 100%;
+    object-fit: contain;
+    margin-top: -22%;
+    top: 0px;
+    z-index: 1;
+  }
+}
