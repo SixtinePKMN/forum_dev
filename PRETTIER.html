@@ -1,0 +1,69 @@
+<!----------------------------------------------->
+<!-- CATEGORIES -------------->
+
+<!-- Conteneur d'une catégorie -->
+<!-- BEGIN catrow -->
+
+<!-- BEGIN tablehead -->
+<div class="categories" id="{catrow.tablehead.ID}">
+  <!-- Titre catégorie -->
+
+  <!-- Conteneur liste des forums -->
+  <!-- END tablehead -->
+
+  <!-- BEGIN forumrow -->
+  <!-- Affichage d'un forum -->
+  <div class="category {catrow.forumrow.FOLDER_CLASSNAME}" data-idforum="{catrow.forumrow.U_VIEWFORUM}">
+    <!-- Titre forum -->
+    <div class="titre">
+      <!-- Staut du forum : sans réponse, nouvelle réponse, vérouillé -->
+      <img class="forum-img" src="{catrow.forumrow.FORUM_FOLDER_IMG}" />
+      <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
+    </div>
+    <div class="dernierSujet">
+      <!-- BEGIN avatar -->
+      <div class="avatar">{catrow.forumrow.avatar.LAST_POST_AVATAR}</div>
+      <!-- END avatar -->
+
+      <!-- BEGIN switch_topic_title -->
+      <a href="{catrow.forumrow.U_LATEST_TOPIC}" title="{catrow.forumrow.LATEST_TOPIC_TITLE}" class="titreSujet">{catrow.forumrow.LATEST_TOPIC_NAME}</a>
+      <!-- END switch_topic_title -->
+
+      <!-- date et auteur -->
+      <div class="dateAuteur">{catrow.forumrow.USER_LAST_POST}</div>
+    </div>
+  </div>
+  <!-- Fin affichage d'un forum -->
+  <!-- END forumrow -->
+
+  <!-- BEGIN tablefoot -->
+  <!-- Fin liste des forums -->
+</div>
+<!-- END tablefoot -->
+<!-- END catrow -->
+<!-- Fin du conteneur de catégorie -->
+
+<!----------------------------------------------->
+<!-- BARRE DE GESTION -------------->
+<div class="links_bar">
+  <!-- BEGIN switch_user_logged_in -->
+  <span>
+    <!-- Messages depuis la dernière visite -->
+    <a id="lastvisit_posts" href="{U_SEARCH_NEW}">Messages depuis la dernière visite</a>
+    <!-- Messages sans réponses -->
+    <a id="posts_unanswered" href="{U_SEARCH_UNANSWERED}">Message sans réponses</a>
+  </span>
+
+  <!-- Marquer les forums comme lus -->
+  <a class="specials_links right" id="mark_read" href="{U_MARK_READ}" accesskey="m">Tout marquer comme lu</a>
+  <!-- END switch_user_logged_in -->
+  <!-- BEGIN switch_on_index -->
+  <!-- Sujets actifs du jour -->
+  <a href="{U_TODAY_ACTIVE}">{L_TODAY_ACTIVE}</a>
+
+  <!-- Supprimer des cookies du forum -->
+  <!-- BEGIN switch_delete_cookies -->
+  <a class="specials_links right" href="{switch_on_index.switch_delete_cookies.U_DELETE_COOKIES}" rel="nofollow">{switch_on_index.switch_delete_cookies.L_DELETE_COOKIES}</a>
+  <!-- END switch_delete_cookies -->
+  <!-- END switch_on_index -->
+</div>

@@ -355,6 +355,29 @@
         </div>
       </div>
 
+      <div class="links_bar">
+        <!-- BEGIN switch_user_logged_in -->
+        <span>
+          <!-- Messages depuis la dernière visite -->
+          <a id="lastvisit_posts" href="{U_SEARCH_NEW}">Messages depuis la dernière visite</a>
+          <!-- Messages sans réponses -->
+          <a id="posts_unanswered" href="{U_SEARCH_UNANSWERED}">Message sans réponses</a>
+        </span>
+
+        <!-- Marquer les forums comme lus -->
+        <a class="specials_links right" id="mark_read" href="{U_MARK_READ}" accesskey="m">Tout marquer comme lu</a>
+        <!-- END switch_user_logged_in -->
+        <!-- BEGIN switch_on_index -->
+        <!-- Sujets actifs du jour -->
+        <a href="{U_TODAY_ACTIVE}">{L_TODAY_ACTIVE}</a>
+
+        <!-- Supprimer des cookies du forum -->
+        <!-- BEGIN switch_delete_cookies -->
+        <a class="specials_links right" href="{switch_on_index.switch_delete_cookies.U_DELETE_COOKIES}" rel="nofollow">{switch_on_index.switch_delete_cookies.L_DELETE_COOKIES}</a>
+        <!-- END switch_delete_cookies -->
+        <!-- END switch_on_index -->
+      </div>
+
       <!-- QEEL -->
       <div id="qeel">
         <div class="dernierInscrit">
@@ -393,7 +416,34 @@
         </div>
       </div>
 
-      <span id="newest_user"> </span>
+      <div id="page-footer">
+        <!--
+        Liens : Panneau d'admin et modifier forum/profil -->
+        <div class="specials_links adminlink">
+          <a href="/admin/?part=admin&amp;tid=35810dae046ce846dfc91eb98a62e056&amp;_tc=1726349049">Panneau d'administration</a>
+        </div>
+        <!--
+        Barre de liens en bas de page -->
+        <div id="bottom" class="links_bar">
+          <!--Liens : Panneau d'admin et modifier forum/profil -->
+          <a href="/" class="specials_links">Accueil</a>
+
+          <!--Liens de copyright de FA -->
+          <span class="right"
+            ><strong><a href="https://www.forumactif.com/forum-gratuit" target="_blank">Forum gratuit</a></strong
+            >&nbsp;|&nbsp;<span class="gensmall">©</span><a href="https://www.forumactif.com/phpbb" target="_blank">phpBB</a>&nbsp;|&nbsp;<a
+              name="bottom"
+              href="https://forum.forumactif.com/"
+              target="_blank"
+              >Forum gratuit d'entraide</a
+            >&nbsp;|&nbsp;<a name="bottom" href="/statistics" rel="nofollow">Statistiques</a>&nbsp;|&nbsp;<a name="bottom" href="/contact" rel="nofollow">Contact</a>&nbsp;|&nbsp;<a
+              href="/abuse?page=%2F&amp;report=1"
+              rel="nofollow"
+              >Signaler un abus</a
+            ></span
+          >
+        </div>
+      </div>
     </div>
 
     <script src="01-1_navbar.js"></script>

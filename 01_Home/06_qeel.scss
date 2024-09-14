@@ -157,3 +157,28 @@ QEEL
     @include container(container, $orange);
   }
 }
+
+/*** BARRE DE GESTION ***/
+.links_bar {
+  @include container(container, $W-primary);
+
+  a {
+    @include bouton(black);
+  }
+}
+
+/*** FOOTER ***/
+#page-footer {
+  @include container(container, $W-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    @include text($inter, 16px);
+  }
+
+  .adminlink a {
+    font-weight: 800;
+  }
+}

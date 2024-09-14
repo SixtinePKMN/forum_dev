@@ -1401,3 +1401,49 @@ QEEL
   padding: 25px;
   border-radius: 10px;
 }
+
+/*** BARRE DE GESTION ***/
+.links_bar {
+  background: #d8e2e9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+}
+.links_bar a {
+  background: #1c1c1f;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #cedbe3;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  padding: 10px 15px;
+  transition: 0.2s;
+  font-family: "inter";
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.links_bar a:hover {
+  color: #27282b;
+  background: #e8eef2;
+  transition: 0.2s;
+}
+
+/*** FOOTER ***/
+#page-footer {
+  background: #d8e2e9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#page-footer a {
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #27282b;
+}
+#page-footer .adminlink a {
+  font-weight: 800;
+}
