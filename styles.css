@@ -216,6 +216,27 @@ orange {
   padding: 25px;
   border-radius: 10px;
 }
+.modal-content .recTopic a {
+  font-family: "inter";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #27282b;
+}
+.modal-content .recTopic-time {
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.35);
+}
+.modal-content .recTopic--author strong {
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #27282b;
+}
 
 #header {
   text-align: center;
