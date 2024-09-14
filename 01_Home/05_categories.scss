@@ -517,6 +517,12 @@ ZONE RP
   .contenuCategorie {
     grid-area: contenuCategorie;
   }
+
+  div p {
+    overflow: auto;
+    max-height: 150px;
+    @include text($inter, 16px);
+  }
 }
 
 .tab .content {

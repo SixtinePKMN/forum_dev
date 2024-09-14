@@ -1114,6 +1114,15 @@ ZONE RP
 #zoneRP .contenuCategorie {
   grid-area: contenuCategorie;
 }
+#zoneRP div p {
+  overflow: auto;
+  max-height: 150px;
+  font-family: "inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #27282b;
+}
 
 .tab .content {
   display: none;
