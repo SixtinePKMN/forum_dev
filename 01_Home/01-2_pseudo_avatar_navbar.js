@@ -11,8 +11,8 @@ $(function () {
         userAvatar = _userdata.avatar,
         divPseudo = userName + "</div>";
       // On met les élements aux bons endroits
-      $("#blocJoueur #avatarJoueur").append(userAvatar);
-      $("#blocJoueur #pseudoJoueur").append(divPseudo);
+      $("#avatarJoueur").append(userAvatar);
+      $("#pseudoJoueur").append(divPseudo);
     } else {
       // Si le membre n'est pas connecté,
       // on cache la barre
