@@ -161,6 +161,9 @@ QEEL
 /*** BARRE DE GESTION ***/
 .links_bar {
   @include container(container, $W-primary);
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
 
   a {
     @include bouton(black);
