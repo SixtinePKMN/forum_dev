@@ -1007,10 +1007,10 @@ STAFF
 #c4 {
   grid-template-areas: " staff staff staff staff staff staff staff staff staff staff staff staff" " corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille";
 }
-#c4 .staff {
+#c4 [data-idforum="/f11-staff"] {
   grid-area: staff;
 }
-#c4 .corbeille {
+#c4 [data-idforum="/f2-corbeille"] {
   grid-area: corbeille;
 }
 

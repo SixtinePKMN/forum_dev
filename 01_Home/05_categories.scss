@@ -410,11 +410,11 @@ STAFF
     "#{areaNumber('staff', 12)}"
     "#{areaNumber('corbeille', 12)}";
 
-  .staff {
+  [data-idforum="/f11-staff"] {
     grid-area: staff;
   }
 
-  .corbeille {
+  [data-idforum="/f2-corbeille"] {
     grid-area: corbeille;
   }
 }
