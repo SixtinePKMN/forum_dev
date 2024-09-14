@@ -76,7 +76,7 @@ orange {
 }
 
 #corpsForum,
-.main-content {
+#main-content {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -89,7 +89,7 @@ orange {
 }
 @media (max-width: 1024px) {
   #corpsForum,
-  .main-content {
+  #main-content {
     background-image: repeating-linear-gradient(to right, rgba(241, 117, 15, 0.2), rgba(241, 117, 15, 0.2) calc((100% - 105px) / 8), transparent calc((100% - 105px) / 8), transparent calc((100% - 105px) / 8 + 15px));
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -97,7 +97,7 @@ orange {
 }
 @media (max-width: 768px) {
   #corpsForum,
-  .main-content {
+  #main-content {
     background-image: repeating-linear-gradient(to right, rgba(28, 135, 235, 0.2), rgba(28, 135, 235, 0.2) calc((100% - 45px) / 4), transparent calc((100% - 45px) / 4), transparent calc((100% - 45px) / 4 + 15px));
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -105,7 +105,7 @@ orange {
 }
 @media (max-width: 640px) {
   #corpsForum,
-  .main-content {
+  #main-content {
     background-image: repeating-linear-gradient(to right, rgba(18, 224, 162, 0.2), rgba(18, 224, 162, 0.2) calc((100% - 15px) / 2), transparent calc((100% - 15px) / 2), transparent calc((100% - 15px) / 2 + 15px));
     background-size: 100% 100%;
     background-repeat: no-repeat;
