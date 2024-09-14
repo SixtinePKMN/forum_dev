@@ -1080,11 +1080,11 @@ ZONE RP
   line-height: 19px;
   color: #27282b;
 }
-#zoneRP .tabs .tab .ville:before {
+#zoneRP .tabs .tab .ville:after {
   content: "\e800";
   color: #bb2d11;
 }
-#zoneRP .tabs .tab .capture:before {
+#zoneRP .tabs .tab .capture:after {
   content: "\e802";
   color: #a2723a;
 }
@@ -1092,8 +1092,8 @@ ZONE RP
   background: rgba(0, 0, 0, 0.1);
   color: #000;
 }
-#zoneRP .tabs .tab:hover .ville:before,
-#zoneRP .tabs .tab:hover .capture:before {
+#zoneRP .tabs .tab:hover .ville:after,
+#zoneRP .tabs .tab:hover .capture:after {
   color: #000;
 }
 #zoneRP .tabs .active {

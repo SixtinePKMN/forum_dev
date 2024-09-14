@@ -478,12 +478,12 @@ ZONE RP
         @include text($fontello, 16px);
       }
 
-      .ville:before {
+      .ville:after {
         content: "\e800";
         color: $orange;
       }
 
-      .capture:before {
+      .capture:after {
         content: "\e802";
         color: $yellow;
       }
@@ -492,8 +492,8 @@ ZONE RP
         background: rgba($black, 0.1);
         color: $black;
 
-        .ville:before,
-        .capture:before {
+        .ville:after,
+        .capture:after {
           color: $black;
         }
       }
