@@ -27,12 +27,14 @@
 
 #avatarJoueur {
   @include taille(50px, 50px);
+  background: $grp01;
+  padding: 5px;
+  border-radius: $br-100;
+
   img {
-    border-radius: $br-100;
     @include taille(40px, 40px);
+    border-radius: $br-100;
     object-fit: cover;
-    background: $grp01;
-    padding: 5px;
   }
 }
 

@@ -146,14 +146,15 @@ orange {
 #avatarJoueur {
   width: 50px;
   height: 50px;
-}
-#avatarJoueur img {
-  border-radius: 100px;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
   background: #fc7545;
   padding: 5px;
+  border-radius: 100px;
+}
+#avatarJoueur img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  object-fit: cover;
 }
 
 .liens {
