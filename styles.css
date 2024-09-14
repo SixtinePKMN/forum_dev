@@ -1051,6 +1051,7 @@ ZONE RP
   flex-direction: row;
   background: #fafbfc;
   color: red;
+  position: relative;
   align-items: center;
   padding: 10px 15px;
   gap: 5px;
@@ -1062,6 +1063,14 @@ ZONE RP
   font-weight: 600;
   line-height: 19px;
   color: #27282b;
+}
+#zoneRP .tabs .tab .icon-new {
+  background: red;
+  position: absolute;
+  right: 15px;
+}
+#zoneRP .tabs .tab .icon-new:after {
+  content: "NEW";
 }
 #zoneRP .tabs .tab .ville,
 #zoneRP .tabs .tab .capture {

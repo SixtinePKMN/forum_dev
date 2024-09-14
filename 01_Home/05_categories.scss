@@ -454,6 +454,7 @@ ZONE RP
       flex-direction: row;
       background: $W-tertiary;
       color: red;
+      position: relative;
       align-items: center;
       padding: 10px 15px;
       gap: 5px;
@@ -461,6 +462,16 @@ ZONE RP
       box-shadow: $inner;
       border-radius: $br-5;
       @include text($inter, 16px, $text-black, 600);
+
+      .icon-new {
+        background: red;
+        position: absolute;
+        right: 15px;
+
+        &:after {
+          content: "NEW";
+        }
+      }
 
       .ville,
       .capture {
