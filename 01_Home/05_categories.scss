@@ -62,35 +62,33 @@ AFFICHAGE CATEGORIE
   .dernierSujet {
     display: grid;
     grid-template-columns: 70px auto;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-areas:
       "avatar titreSujet"
-      "avatar date"
-      "avatar auteur";
+      "avatar dateAuteur";
   }
 
-  .avatar img {
+  .avatar {
     grid-area: avatar;
-    margin-right: 10px;
     @include taille(50px, 50px);
-    object-fit: cover;
-    border-radius: $br-5;
-    border: 5px solid $W-tertiary;
+    img {
+      margin-right: 10px;
+      @include taille(50px, 50px);
+      object-fit: cover;
+      border-radius: $br-5;
+      border: 5px solid $W-tertiary;
+    }
   }
 
   .titreSujet {
     grid-area: titreSujet;
     @include text($inter, 16px, $text-black, 700);
   }
-  .date {
-    grid-area: date;
+  .dateAuteur {
+    grid-area: dateAuteur;
     @include text($inter, 14px, rgba($black, 0.35), 700);
-  }
-  .auteur {
-    grid-area: auteur;
-    @include text($inter, 16px, $text-black, 700);
   }
 
   .titre a,
