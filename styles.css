@@ -554,13 +554,13 @@ ADMINISTRATIF
     grid-template-areas: " communication communication communication communication" " absences absences absences absences" " partenariats partenariats partenariats partenariats";
   }
 }
-#c1 .Communication {
+#c1 [data-idforum="/f1-communication"] {
   grid-area: communication;
 }
-#c1 .Absences {
+#c1 [data-idforum="/f3-absences"] {
   grid-area: absences;
 }
-#c1 .Partenariats {
+#c1 [data-idforum="/f4-partenariats"] {
   grid-area: partenariats;
 }
 

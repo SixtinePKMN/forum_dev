@@ -128,15 +128,15 @@ ADMINISTRATIF
   }
 
   /** catégories **/
-  .Communication {
+  [data-idforum="/f1-communication"] {
     grid-area: communication;
   }
 
-  .Absences {
+  [data-idforum="/f3-absences"] {
     grid-area: absences;
   }
 
-  .Partenariats {
+  [data-idforum="/f4-partenariats"] {
     grid-area: partenariats;
   }
 }
