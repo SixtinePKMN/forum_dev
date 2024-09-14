@@ -57,35 +57,34 @@
 
 /* Style pour la modal */
 .modal {
-  display: none; /* Caché par défaut */
+  display: none;
   position: fixed;
-  z-index: 1000; /* Au-dessus de tout autre contenu */
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  overflow: hidden;
+  background-color: rgba($black, 0.8);
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+  @include container(container, $W-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  max-height: 60%;
+  overflow: auto;
 
-.modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+  .topics_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.modal-close:hover,
-.modal-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+  .recTopic {
+    @include container(container, $W-secondary);
+  }
 }
