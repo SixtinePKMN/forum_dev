@@ -1005,7 +1005,8 @@ CREATION ET GESTION
 STAFF
 *************************/
 #c4 {
-  grid-template-areas: " staff staff staff staff staff staff staff staff staff staff staff staff" " corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille corbeille";
+  grid-template-columns: 1fr;
+  grid-template-areas: "staff" "corbeille";
 }
 #c4 [data-idforum="/f11-staff"] {
   grid-area: staff;
