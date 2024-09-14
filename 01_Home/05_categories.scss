@@ -71,7 +71,7 @@ AFFICHAGE CATEGORIE
       "avatar auteur";
   }
 
-  .avatar {
+  .avatar img {
     grid-area: avatar;
     margin-right: 10px;
     @include taille(50px, 50px);

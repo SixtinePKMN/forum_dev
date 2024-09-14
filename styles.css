@@ -490,7 +490,7 @@ AFFICHAGE CATEGORIE
   grid-row-gap: 0px;
   grid-template-areas: "avatar titreSujet" "avatar date" "avatar auteur";
 }
-.category .avatar {
+.category .avatar img {
   grid-area: avatar;
   margin-right: 10px;
   width: 50px;
